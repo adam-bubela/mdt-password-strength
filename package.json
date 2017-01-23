@@ -1,0 +1,19 @@
+{
+  "name": "@adambubela/mdt-password-strength",
+  "version": "0.0.1",
+  "description": "Angular Material password streng ",
+  "main": "mdt-password-strength.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Bubela",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam-bubela/mdt-password-strength.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adam-bubela/mdt-password-strength/issues"
+  },
+  "homepage": "https://github.com/adam-bubela/mdt-password-strength#readme"
+}
