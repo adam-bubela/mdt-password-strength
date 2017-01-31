@@ -1,48 +1,91 @@
 angular.module('mdtPasswordStrength',[])
-.controller('MainCtrl', function($scope) {
-    $scope.name = 'World';
+.controller('mdtPasswordStrengthCtrl', function($scope) {
+
+
+    $scope.ngModel.$setValidity('strength',false);
+
 })
 .directive('mdtPasswordStrength', function() {
     return {
         restrict: 'A',
         require: '?ngModel',
+        scope:{
+            ngModel:'=',
+            mdtFeedback : '=',
+            mdtStrengthLevels : '='
+        },
         link: function(scope, elem, attrs, ngModel) {
 
-            var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-            var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-            scope.passwordErrorHint = 'At least 1 upper case, 8 characters and 1 digit';
 
-            // do nothing if no ng-model
-            if (!ngModel) {
-                return;
-            }
+            /** Assign strength levels */
+            var classifier = scope.mdtStrengthLevels ? scope.mdtStrengthLevels : {
+                weak    : [6,1,1,0,0],//length, uppercase, lowercase, digits, special chars
+                medium  : [8,2,2,1,0],
+                strong  : [9,2,2,2,1]
+            };
 
-            // watch own value and re-validate on change
+           /** Matching rules for eery block */
+            var matchers = [
+                    /./g,                               // length
+                    /[A-Z]/g,                           // upper case
+                    /[a-z]/g,                           // lower case
+                    /[0-9]/g,                           // digits
+                    /[_+-.,!@#$%^&*();\/|<>"']/g];     // special chars
 
-            scope.$watch(attrs.ngModel, function() {
-                validate(scope);
+
+
+            scope.$watch('ngModel', function(newValue){
+
+                if(newValue) {
+                    scope.mdtFeedback = validate(newValue);
+                    ngModel.$setValidity('strength',  scope.mdtFeedback);
+                }
+
             });
 
-            var validate = function($scope) {
 
 
-                var value = ngModel.$viewValue;
+            /** Test accross all pedeified security levels and return the highes reached */
+            function validate(val) {
 
+               // var val = ngModel.$viewValue,
+                    var reachedLevel = false;
 
-                if(strongRegex.test(value)) {
-                    console.log('green');
-                    ngModel.$setValidity('strength',true);
-                    //$scope.passwordStrength["background-color"] = "green";
-                } else if(mediumRegex.test(value)) {
-                    console.log('orange');
-                    ngModel.$setValidity('strength',true);
-                    //$scope.passwordStrength["background-color"] = "orange";
-                } else {
-                    console.log('red');
-                    ngModel.$setValidity('strength',false);
-                    //$scope.passwordStrength["background-color"] = "red";
+                if(!val) return;
+               // console.log('%c '+val+' ','background: #222; color: #bada55');
+
+                for(level in classifier) {
+
+                    for (index in classifier[level]) {
+
+                        if (!microTest(val, classifier[level][index], index)) {
+                            return reachedLevel;
+                        }else{
+                            reachedLevel = level;
+                        }
+
+                    }
+
                 }
-            };
+
+                return reachedLevel;
+
+            }
+
+            /** Test is the test meets all requirements within given security level */
+            function microTest(val,strength,index){
+
+                if(!strength || strength<1) return true; // Ignote zero strengths
+
+                var reg = matchers[index],
+                    matches = val.match(reg);
+
+                return (!matches || matches.length < strength) ? false : true;
+
+            }
+
+
+
         }
     };
 })
