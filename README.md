@@ -22,8 +22,8 @@ The password is valid when at least the first ('weak' in the above example) set 
 The `mdt-feedback` returns the password strength level. In the given example it 
 would be `weak`, `fine`, `good` or `false` if the password is completely invalid.
 
-There must be at least 1 validation level which may be any identified by any array key, however 
-each level must always have 5 integer values which stand for **minimum**:
+There must be at least 1 validation level which may be any identified by any array key, 
+however each level must always have **5** integer possitive values which stand for **minimum**:
 - password length
 - number of uppercase characters /ABCDEFGHIJKLMNOPQRSTUVWXYZ/
 - number of lowercase characters /abcdefghijklmnopqrstuvwxyz/
