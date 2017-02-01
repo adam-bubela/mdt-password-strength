@@ -4,11 +4,11 @@
 
 <h4>How it works</h4>
 ```html
-<input ng-model="password" name="password" type="password" required
-       mdt-password-strength
-       mdt-feedback="validationResult_material"
-       mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"strong":[9,2,2,2,1],"unbreakable":[12,2,2,2,2]}'
-/>
+<input 
+   ng-model="password" name="password" type="password" required
+   mdt-password-strength
+   mdt-feedback="validationResult_material"
+   mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"good":[9,2,2,2,1]}'/>
 ```
 
 Attribute `mdt-strength-levels` requires 2-dimensional array
