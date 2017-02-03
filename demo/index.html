@@ -16,8 +16,12 @@
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.css">
 
     <style>
+        .ng-not-empty.awful-red{
+            background-color: red ;
+            color: white;
+        }
         .ng-not-empty.red{
-            background-color:  #FFAEAE ;
+            background-color: #FFAEAE ;
         }
         .ng-not-empty.orange{
             background-color: #FFF0AA;
@@ -26,6 +30,7 @@
             background-color: #B0E57C;
         }
     </style>
+
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-messages.min.js"></script>
@@ -41,7 +46,7 @@
 </head>
 <body>
 
-
+<h1 style="text-align: center">mdt password strength demo</h1>
 <div class="md-inline-form inputdemoBasicUsage" ng-controller="DemoCtrl" ng-app="MyApp" layout="column" ng-cloak="">
 
 
@@ -50,7 +55,7 @@
         <div>
             <form name="userForm">
                 <h3>Default</h3>
-                <pre>mdt-strength-levels not defined, use defalul {weak:[6,1,1,0,0], medium:[8,2,2,1,0], strong:[9,2,2,2,1]}</pre>
+                <pre>mdt-strength-levels not defined, thus use default: {weak:[6,1,1,0,0], medium:[8,2,2,1,0], strong:[9,2,2,2,1]}</pre>
 
                 <input ng-model="password"
                        name="password"
@@ -81,11 +86,11 @@
                        required
                        mdt-password-strength
                        mdt-feedback="validationResult_custom"
-                       ng-class="validationResult_custom||'red'"
+                       ng-class="validationResult_custom||'awful-red'"
                        mdt-strength-levels='{red:[6,1,0,0,0],orange:[8,2,1,1,0],green:[9,2,2,2,1]}'
                 /><small> feedback: {{validationResult_custom}}</small>
-                <hr><br>
-                <md-divider></md-divider>
+                <hr><br><br>
+
                 <h3>Angular Material</h3>
 
                 <pre>mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"strong":[9,2,2,2,1],"unbreakable":[12,2,2,2,2]}'</pre>

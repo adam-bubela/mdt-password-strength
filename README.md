@@ -5,11 +5,12 @@
 <h3>Installation</h3>
 
 <p><pre>npm i mdt-password-strength</pre></p>
-
-<p><pre>npm install --save mdt-password-strength</pre></p>
+or
+<p><pre>npm i --save mdt-password-strength</pre></p>
 
 <h3>Usage</h3>
-Demo to find <a href="/demo/index.html">here</a>
+Demo <a href="https://adam-bubela.github.io/mdt-password-strength/demo/index.html">
+https://adam-bubela.github.io/mdt-password-strength/demo/index.html</a>
 
 ```html
 <input 
@@ -32,10 +33,10 @@ Demo to find <a href="/demo/index.html">here</a>
 <p>
 The password is valid when at least the first ('weak' in the above example) set of conditions is met.
 The <i>mdt-feedback</i> returns the password strength level. In the given example it 
-would be <i>weak</i>, <i>fine</i>, <i>good</i> or <i>false</i> if the password is completely invalid.
+would be '<i>weak</i>', '<i>fine</i>', '<i>good</i>' or <i>false</i> if the password is completely invalid.
 </p><p>
-There must be at least 1 validation level which may be any identified by any array key, 
-however each level must always have <b>5</b> integer possitive values which stand for <b>minimum</b>:</p>
+There must be at least 1 validation level which may be identified by any array key, 
+however each level must always have <b>5</b> integer possitive values which stand for the following <b>minimum</b> requirements:</p>
 <ul>
 <li>password length</li>
 <li>number of uppercase characters /ABCDEFGHIJKLMNOPQRSTUVWXYZ/</li>
