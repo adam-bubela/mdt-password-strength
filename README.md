@@ -32,7 +32,7 @@ Demo to find <a href="/demo/index.html">here</a>
 <p>
 The password is valid when at least the first ('weak' in the above example) set conditions is met.
 The <pre>mdt-feedback</pre> returns the password strength level. In the given example it 
-would be <pre>weak`, <pre>fine</pre>, <pre>good</pre> or <pre>false</pre> if the password is completely invalid.
+would be <pre>weak</pre>, <pre>fine</pre>, <pre>good</pre> or <pre>false</pre> if the password is completely invalid.
 </p><p>
 There must be at least 1 validation level which may be any identified by any array key, 
 however each level must always have <b>5</b> integer possitive values which stand for <b>minimum</b>:
