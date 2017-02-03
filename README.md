@@ -4,10 +4,9 @@
 
 <h3>Installation</h3>
 
-<p>`npm i mdt-password-strength`</p>
+<p><pre>npm i mdt-password-strength</pre></p>
 
-<p>`npm install --save mdt-password-strength`</p>
-
+<p><pre>npm install --save mdt-password-strength</pre></p>
 
 
 <h3>Usage</h3>
