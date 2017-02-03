@@ -12,11 +12,11 @@
 Demo to find <a href="/demo/index.html">here</a>
 
 ```html
-&lt;input 
-   ng-model=&quot;password&quot; name=&quot;password&quot; type=&quot;password&quot; required
+<input 
+   ng-model="password" name="password" type="password" required
    mdt-password-strength
-   mdt-feedback=&quot;validationResult_material&quot;
-   mdt-strength-levels=&apos;{&quot;weak&quot;:[6,1,0,0,0],&quot;fine&quot;:[8,2,1,1,0],&quot;good&quot;:[9,2,2,2,1]}&apos;/&gt;
+   mdt-feedback="validationResult_material"
+   mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"good":[9,2,2,2,1]}'
 ```
 
 <p>Attribute `mdt-strength-levels` requires 2-dimensional array</p>
