@@ -1,6 +1,6 @@
 {
   "name": "mdt-password-strength",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "AngularJs password strenght",
   "main": "mdt-password-strength.js",
   "scripts": {
@@ -15,5 +15,5 @@
   "bugs": {
     "url": "https://github.com/adam-bubela/mdt-password-strength/issues"
   },
-  "homepage": "https://github.com/adam-bubela/mdt-password-strength#readme"
+  "homepage": "https://adam-bubela.github.io/mdt-password-strength"
 }
