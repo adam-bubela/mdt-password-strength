@@ -8,7 +8,6 @@
 
 <p><pre>npm install --save mdt-password-strength</pre></p>
 
-
 <h3>Usage</h3>
 Demo to find <a href="/demo/index.html">here</a>
 
