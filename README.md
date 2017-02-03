@@ -16,11 +16,11 @@ Demo to find <a href="/demo/index.html">here</a>
    ng-model="password" name="password" type="password" required
    mdt-password-strength
    mdt-feedback="validationResult_material"
-   mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"good":[9,2,2,2,1]}'
+   mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"good":[9,2,2,2,1]}'/>
 ```
 
 <p>Attribute `mdt-strength-levels` requires 2-dimensional array</p>
-<pre>
+
 ```javascript
 {
    "weak":[6,1,0,0,0], // 6 characters long, 1 uppercase
@@ -28,22 +28,21 @@ Demo to find <a href="/demo/index.html">here</a>
    "good":[9,2,2,2,1]  // 9 characters long, 2 uppercases, 2 lowercases, 2 digits, 1 special character
 }
 ```
-</pre>
+
 <p>
 The password is valid when at least the first ('weak' in the above example) set conditions is met.
-The `mdt-feedback` returns the password strength level. In the given example it 
-would be `weak`, `fine`, `good` or `false` if the password is completely invalid.
+The <pre>mdt-feedback</pre> returns the password strength level. In the given example it 
+would be <pre>weak`, <pre>fine</pre>, <pre>good</pre> or <pre>false</pre> if the password is completely invalid.
 </p><p>
 There must be at least 1 validation level which may be any identified by any array key, 
-however each level must always have **5** integer possitive values which stand for **minimum**:
-</p>
+however each level must always have <b>5</b> integer possitive values which stand for <b>minimum</b>:
 <ul>
 <li>password length</li>
 <li>number of uppercase characters /ABCDEFGHIJKLMNOPQRSTUVWXYZ/</li>
 <li>number of lowercase characters /abcdefghijklmnopqrstuvwxyz/</li>
 <li>number of digits /0-9/ </li>
 <li>mumber of special characters /_+-.,!@#$%^&*();\/|<>"'/</li>
-
+</p>
 
 
 
