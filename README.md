@@ -35,14 +35,14 @@ The <i>mdt-feedback</i> returns the password strength level. In the given exampl
 would be <i>weak</i>, <i>fine</i>, <i>good</i> or <i>false</i> if the password is completely invalid.
 </p><p>
 There must be at least 1 validation level which may be any identified by any array key, 
-however each level must always have <b>5</b> integer possitive values which stand for <b>minimum</b>:
+however each level must always have <b>5</b> integer possitive values which stand for <b>minimum</b>:</p>
 <ul>
 <li>password length</li>
 <li>number of uppercase characters /ABCDEFGHIJKLMNOPQRSTUVWXYZ/</li>
 <li>number of lowercase characters /abcdefghijklmnopqrstuvwxyz/</li>
 <li>number of digits /0-9/ </li>
 <li>mumber of special characters /_+-.,!@#$%^&*();\/|<>"'/</li>
-</p>
+
 
 
 
