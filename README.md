@@ -20,7 +20,7 @@ https://adam-bubela.github.io/mdt-password-strength/demo/index.html</a>
    mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"good":[9,2,2,2,1]}'/>
 ```
 
-<p>Attribute ```javascript mdt-strength-levels``` requires 2-dimensional array</p>
+<p>Attribute '<i>mdt-strength-levels</i>' requires 2-dimensional array</p>
 
 ```javascript
 {
