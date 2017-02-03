@@ -1,6 +1,6 @@
 <h1>MDT Password Strength</h1>
-<h2>Simple Angular directive that helps validating and evaluating password strength.</h2>
-
+<h2>Angular directive that validates password and evaluates its strength</h2>
+<br>
 
 <h3>Installation</h3>
 
