@@ -1,6 +1,6 @@
 {
   "name": "mdt-password-strength",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "AngularJs password strenght",
   "main": "mdt-password-strength.js",
   "scripts": {
