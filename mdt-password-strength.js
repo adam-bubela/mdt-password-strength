@@ -11,7 +11,7 @@ angular.module('mdtPasswordStrength',[])
         require: '?ngModel',
         scope:{
             ngModel:'=',
-            mdtFeedback : '=',
+            mdtFeedback : '=?',
             mdtStrengthLevels : '='
         },
         link: function(scope, elem, attrs, ngModel) {
@@ -24,15 +24,6 @@ angular.module('mdtPasswordStrength',[])
                 strong  : [9,2,2,2,1]
             };
 
-           /** Matching rules for eery block */
-            var matchers = [
-                    /./g,                               // length
-                    /[A-Z]/g,                           // upper case
-                    /[a-z]/g,                           // lower case
-                    /[0-9]/g,                           // digits
-                    /[_+-.,!@#$%^&*();\/|<>"']/g];     // special chars
-
-
 
             scope.$watch('ngModel', function(newValue){
 
@@ -44,46 +35,47 @@ angular.module('mdtPasswordStrength',[])
             });
 
 
-
             /** Test accross all pedeified security levels and return the highes reached */
             function validate(val) {
 
-               // var val = ngModel.$viewValue,
-                    var reachedLevel = false;
-
                 if(!val) return;
+
+                var reachedLevel = false; //default value if none of lavels is riched
+
                // console.log('%c '+val+' ','background: #222; color: #bada55');
 
                 for(level in classifier) {
 
-                    for (index in classifier[level]) {
+                    for (index in classifier[level])
 
-                        if (!microTest(val, classifier[level][index], index)) {
-                            return reachedLevel;
-                        }else{
-                            reachedLevel = level;
-                        }
+                        if (!microTest(val, classifier[level][index], index)) return reachedLevel;
 
-                    }
-
+                    reachedLevel = level;
                 }
 
                 return reachedLevel;
 
             }
 
-            /** Test is the test meets all requirements within given security level */
+            /** The test meets all requirements within given security level */
             function microTest(val,strength,index){
 
                 if(!strength || strength<1) return true; // Ignote zero strengths
 
-                var reg = matchers[index],
-                    matches = val.match(reg);
+                /** Matching rules for eery block */
+                var matchers = [
+                    /./g,                              // length
+                    /[A-Z]/g,                          // upper case
+                    /[a-z]/g,                          // lower case
+                    /[0-9]/g,                          // digits
+                    /[_+-.,!@#$%^&*();\/|<>"']/g];     // special chars
 
-                return (!matches || matches.length < strength) ? false : true;
+                var reg = matchers[index],
+                    match = val.match(reg);
+
+                return (match && match.length >= strength);
 
             }
-
 
 
         }

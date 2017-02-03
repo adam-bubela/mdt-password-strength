@@ -1,8 +1,8 @@
 <!DOCTYPE html >
 <html lang = "en">
 <head>
-    <title>Explore - customer portal</title>
-    <link href = "https://www.explore.co.uk/templates/explore/favicon.ico" rel = "shortcut icon" type = "image/vnd.microsoft.icon" />
+    <title>mdt password strength demo</title>
+
     <META NAME = "ROBOTS" CONTENT = "NOINDEX, FOLLOW">
     <META NAME = "ROBOTS" CONTENT = "INDEX, NOFOLLOW">
     <META NAME = "ROBOTS" CONTENT = "NOINDEX, NOFOLLOW">
@@ -14,7 +14,7 @@
     <link href = "//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic" rel = "stylesheet">
     <link href = "//fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.css">
-    <link rel="stylesheet" href="../mdt-password-strength.css" type="text/css">
+
     <style>
         .ng-not-empty.red{
             background-color:  #FFAEAE ;
@@ -35,7 +35,7 @@
     <script>
         var app = angular.module('MyApp', ['ngMaterial','ngMessages','ngAnimate','ngAria','mdtPasswordStrength']);
             app.controller('DemoCtrl', function($scope){
-                $scope.simpleStrengthRule = {ok:[6,1,0,0,0]};
+                $scope.simpleStrengthRule = {'is`s ok':[6,1,0,0,0]};
             });
     </script>
 </head>
@@ -50,16 +50,18 @@
         <div>
             <form name="userForm">
                 <h3>Default</h3>
-                <p>{{validationResult_default}}</p>
+                <pre>mdt-strength-levels not defined, use defalul {weak:[6,1,1,0,0], medium:[8,2,2,1,0], strong:[9,2,2,2,1]}</pre>
+
                 <input ng-model="password"
                        name="password"
                        required
                        mdt-password-strength
-                       mdt-feedback="validationResult_default"
-                />
+                       mdt-feedback="validationResult_default"/>
+                <small> feedback: {{validationResult_default}}</small>
                 <hr>
+
                 <h3>Simple</h3>
-                <p>{{validationResult_simple}}</p>
+                <pre> mdt-strength-levels='{{simpleStrengthRule}}'</pre>
                 <input ng-model="password"
                        name="password"
                        required
@@ -67,33 +69,45 @@
                        mdt-feedback="validationResult_simple"
                        mdt-strength-levels="simpleStrengthRule"
                 />
+                <small> feedback: {{validationResult_simple}}</small>
+
+
                 <hr>
                 <h3>Custom password strength levels</h3>
-                <p>{{validationResult_custom}}</p>
+                <pre>mdt-strength-levels='{red:[6,1,0,0,0],orange:[8,2,1,1,0],green:[9,2,2,2,1]}'</pre>
+
                 <input ng-model="password"
                        name="password"
                        required
                        mdt-password-strength
                        mdt-feedback="validationResult_custom"
                        ng-class="validationResult_custom||'red'"
-                       mdt-strength-levels='{"red":[6,1,0,0,0],"orange":[8,2,1,1,0],"green":[9,2,2,2,1]}'
-                />
-                <hr>
+                       mdt-strength-levels='{red:[6,1,0,0,0],orange:[8,2,1,1,0],green:[9,2,2,2,1]}'
+                /><small> feedback: {{validationResult_custom}}</small>
+                <hr><br>
+                <md-divider></md-divider>
                 <h3>Angular Material</h3>
-                <p>{{validationResult_material}}</p>
+
+                <pre>mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"strong":[9,2,2,2,1],"unbreakable":[12,2,2,2,2]}'</pre>
+
+
                 <div layout-gt-xs="row">
-                    <md-input-container flex>
+                    <md-input-container flex="70">
                         <label>Password</label>
-                        <input ng-model="password" name="password" type="password" required
+                        <input ng-model="password4" name="password4" type="text" required
                                mdt-password-strength
                                mdt-feedback="validationResult_material"
                                mdt-strength-levels='{"weak":[6,1,0,0,0],"fine":[8,2,1,1,0],"strong":[9,2,2,2,1],"unbreakable":[12,2,2,2,2]}'
                         />
-                        <div ng-messages="userForm.password.$error" multiple md-auto-hide="false">
+
+                        <div ng-messages="userForm.password4.$error" multiple md-auto-hide="false">
                             <div ng-message="required">Password cannot be empty</div>
                             <div ng-message="strength">At least 6 characters long and 1 upper case</div>
                         </div>
                     </md-input-container>
+                    <div flex="30">
+                        <small> feedback: {{validationResult_material}}</small>
+                    </div>
                 </div>
 
 
